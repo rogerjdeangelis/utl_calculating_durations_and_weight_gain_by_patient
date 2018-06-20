@@ -10,7 +10,7 @@ https://github.com/rogerjdeangelis/utl_calculating_durations_and_weight_gain_by_
 
      1. Paul Dorfhman SQL
      2. Paul Dorfman datastep
-     3. Mark Keintz  sum(0,dif(var2))  clever?
+     3. Mark Keintz  sum(0,dif(var2))  clever? (see recent comment)
      4. Roger DeAngelis
 
 
