@@ -90,6 +90,22 @@ PROCESS
      if last.id;
      cnt=min(_n_,dif(_n_));
    run;
+   
+   From Mark
+     Then only reason I embed the DIF function inside a SUM is to avoid generating 
+     missing values at the start of the queue.  But given that the task will never 
+     keep the results of the first DIF operation, I should have not bothered with 
+     the SUM function, i.e. this code
+
+     if first.id or last.id then do;
+       diffvar=dif(var1);
+       duration=dif(var2);
+     end;
+
+would have been fine in this case.  But I'm a creature of habit.
+
+Regards,
+Mark
 
  4. Roger DeAngelis
 
