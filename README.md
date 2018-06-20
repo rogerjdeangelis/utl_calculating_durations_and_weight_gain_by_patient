@@ -13,7 +13,7 @@ Calculating durations and weight gain by patient. Keywords: sas sql join merge b
 
          1. Paul Dorfhman SQL
          2. Paul Dorfman datastep
-         3. Mark Keintz  sum(0,dif(var2))  clever?
+         3. Mark Keintz  sum(0,dif(var2))  clever? (see recent comment below)
          4. Roger DeAngelis
 
 
@@ -93,7 +93,17 @@ Calculating durations and weight gain by patient. Keywords: sas sql join merge b
          if last.id;
          cnt=min(_n_,dif(_n_));
        run;
+       
+    From Mark
+     Then only reason I embed the DIF function inside a SUM is to avoid generating 
+     missing values at the start of the queue.  But given that the task will never 
+     keep the results of the first DIF operation, I should have not bothered with 
+     the SUM function, i.e. this code
 
+     if first.id or last.id then do;
+       diffvar=dif(var1);
+       duration=dif(var2);
+     end;
      4. Roger DeAngelis
 
         data want;
